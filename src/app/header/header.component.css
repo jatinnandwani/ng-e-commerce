@@ -1,0 +1,15 @@
+.top-notification-wrapper {
+    height: 30px;
+    transition: height .2s ease-in 0s;
+}
+
+.top-notification {
+    background-color: #51aa1b;
+    color: #fff;
+    height: inherit;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
