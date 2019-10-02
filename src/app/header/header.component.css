@@ -70,7 +70,7 @@
 }
 
 .city-name{
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .grater-icon-cus{
@@ -87,19 +87,72 @@
 }
 
 .location-container-seperator{
-    margin: 20px auto;
+    padding: 0 24px 24px;
 }
 
-.location-seperator-content{
+/* .location-seperator-content{
     text-align: center;
     font-weight: 550;
     font-family: Celias,Helvetica;
-}
-.separator-text::before, .separator-text::after{
+} */
+
+
+/* .location-seperator-content .seperator-text::before{
     content: "";
     position: absolute;
     top: 50%;
     border-bottom: 1px solid #333;
     width: 48px;
     margin: 0
+} */
+
+.location-seperator-content {
+    padding: 0 24px 0px;
+    line-height: 1px;
+}
+.seperator-line-between{
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    height: 19px;
+    padding: 16px 12px;
+    overflow: hidden;
+    text-align: center;
+}
+.text-btwn-line {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+.seperator-line-between .text-btwn-line {
+    position: relative;
+    display: inline-block;
+}
+.seperator-line-between .text-btwn-line::before , .seperator-line-between .text-btwn-line::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    border-bottom: 1px solid #333;
+    width: 48px;
+    margin: 0
+}
+
+.city-asking-text{
+    text-align: center;
+    font-weight: 400;
+}
+
+.top-selected-images-1{
+    display: inline-block;
+    width: 17%;
+}
+
+.top-city{
+    width: 62%;
+    margin: 9px;
+}
+.top-city-name{
+    font-size: 12px;
+    display: block;
 }
