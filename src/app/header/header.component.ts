@@ -8,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public show:boolean = false;
+  public buttonName:any = 'Show';
+  
   constructor() { }
 
   ngOnInit() {
   }
- 
+  toggle() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)  
+      this.buttonName = "Location";
+    else
+      this.buttonName = "Location1";
+  }
 }
 

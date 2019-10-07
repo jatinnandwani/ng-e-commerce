@@ -1,20 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
-.nav-bar-cus{
-    background-color: rgb(28, 34, 36);
-}
 
-.company-logo{
-    display: block;
-    padding: 10px 28px;
-}
-
-.logo {
-    width: 36px;
-}
-
-.logo-div{
-    border-right: 1px solid hsla(0,0%,100%,.08);
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: rgba(255, 255, 255, 0.08);
-}
