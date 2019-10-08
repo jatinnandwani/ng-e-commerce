@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-  
+
 
 @Component({
   selector: 'app-header',
@@ -10,19 +10,16 @@ export class HeaderComponent implements OnInit {
 
   public show:boolean = false;
   public buttonName:any = 'Show';
+  public toogle_cart = 'hide_cart';
   
   constructor() { }
 
   ngOnInit() {
   }
-  toggle() {
-    this.show = !this.show;
 
-    // CHANGE THE NAME OF THE BUTTON.
-    if(this.show)  
-      this.buttonName = "Location";
-    else
-      this.buttonName = "Location1";
+  open_cart(){
+    this.show = !this.show;
   }
+
 }
 

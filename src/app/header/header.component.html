@@ -109,24 +109,8 @@
                         </div>
                      </div>
                      <div class="nav-right-cart-div">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cart
-                        </a>
-                        <div class="dropdown-menu custom-cart-menu" aria-labelledby="navbarDropdownMenuLink">
-                           <div class="cart-container">
-                              <nav class="navbar navbar-expand-sm bg-dark navbar-dark cus-rem-pad-nav">
-                                 <div class="container-fluid">
-                                    <div class="row">
-                                       <div class="col-md-10">
-                                          My Cart     
-                                       </div>
-                                       <div class="col-md-2">
-                                       </div>
-                                    </div>
-                                 </div>
-                              </nav>
-                           </div>
-                        </div>
+                        <p class="cart-text" (click)="open_cart('show')"><span class="fa fa-shopping-cart custom-shop-cart" aria-hidden="true"></span>Cart</p>
+                        
                      </div>
                   </div>
                </div>
@@ -138,5 +122,19 @@
    </div>
    <!--Dropdown primary-->
    <!--/Dropdown primary-->
-   
-   
+         <ng-container *ngIf = "show">
+               <div class="cart-container">
+                     <nav class="navbar navbar-expand-sm cart-navbar cus-rem-pad-nav">
+                        <p>My Cart</p>
+                     </nav>
+                     <div class="list-of-item">
+                        
+                     </div>
+                     <div class="bottom-cart-div">
+                        <div class="bottom-cart-container">
+                              <button type="button" class="btn btn-warning start-shoping-button">Start Shoping</button>
+                        </div>
+                           
+                     </div>
+               </div>            
+         </ng-container>
