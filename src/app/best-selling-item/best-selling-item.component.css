@@ -1,0 +1,60 @@
+.best-selling-info{
+    margin-top: 20px; 
+}
+
+.best-selling-header{
+    font-size: 18px;
+    font-weight: 501;
+    
+}
+.cus-slide-container{
+    border: 1px solid #eee;
+    padding: 15px;
+}
+
+.view-all-best-selling a{
+     font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+
+.best-selling-slider-wrapper{
+    margin: 20px 0 0 0;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.best-selling-offer{
+    background-color: #51aa1b;
+    border-radius: 3px;
+    border: 1px solid #51aa1b;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 501;
+    line-height: 1;
+    margin-top: 1px;
+    padding: 3px 5px 2px;
+    z-index: 1;
+}
+
+.cus-slider-img {
+    width: 60%;
+    margin: auto;
+}
+
+.best-selling-item-name{
+    color: #666;
+    font-size: 14px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 0;
+    word-break: break-word;
+    height: 38px;
+}
+.best-selling-item-quantity{
+    color: #666;
+    margin-left: 12px;
+    margin-right: 12px;
+}

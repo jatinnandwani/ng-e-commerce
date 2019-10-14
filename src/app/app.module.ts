@@ -6,18 +6,31 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderCitySelectionComponent } from './header-city-selection/header-city-selection.component';
+import { ProductCategoryComponent } from './product-category/product-category.component';
+import { OwlModule } from 'ngx-owl-carousel';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageBannnerComponent } from './home-page-bannner/home-page-bannner.component';
+import { BestSellingItemComponent } from './best-selling-item/best-selling-item.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HeaderCitySelectionComponent
+    HeaderCitySelectionComponent,
+    ProductCategoryComponent,
+    HomePageComponent,
+    HomePageBannnerComponent,
+    BestSellingItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    BrowserModule,
+    OwlModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

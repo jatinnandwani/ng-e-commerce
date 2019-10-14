@@ -1,0 +1,48 @@
+<div class="best-selling-info">
+   <div class="row">
+      <div class="col-md-6">
+            <p class="best-selling-header">Best Selling Items</p>
+      </div>
+      <div class="col-md-6 view-all-best-selling">
+            <a class="pull-right">View all  <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      </div>  
+               
+   </div>  
+</div>
+
+
+<!-- <div class="best-selling-info">
+                      <div class="best-selling-header">
+                         <p class="">Best Selling Items</p>
+                      </div>
+                      <div class="view-all-best-selling">
+                         <a class="">View all  <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                      </div>
+</div> -->
+<div class="wrapper">
+      <div class="best-selling-slider-wrapper">
+            <ngx-slick-carousel class="carousel" 
+            #slickModal="slick-carousel" 
+            [config]="slideConfig" 
+            (init)="slickInit($event)"
+            (breakpoint)="breakpoint($event)"
+            (afterChange)="afterChange($event)"
+            (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+               <div class="cus-slide-container">
+                  <div class="best-selling-offer">{{ slide.discount}}</div> 
+                  <div class="cus-slider-img">
+                     <img src="{{ slide.img }}" alt="" width="100%">
+                  </div>
+                  <div class="best-selling-item-name">
+                     <p class="">{{ slide.description }} </p>
+                  </div>
+                  <div class="best-selling-item-quantity">
+                     <p class="">{{ slide.quantity}}</p>
+                  </div>
+                  </div> 
+            </div>
+            </ngx-slick-carousel>
+      </div>
+</div>
+

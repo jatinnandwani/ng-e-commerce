@@ -1,0 +1,18 @@
+
+
+<div class="product-list-div">
+    <div class="carousel-wrap">
+       <owl-carousel [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+       <div class="item" *ngFor="let image of images;let i= index">
+          <div class="cust-item">
+             <img class="slide-image cust-item" src="{{image.image}}" >
+          </div>
+          <div class="slide-text">
+             <p class="image-text">{{image.text}}</p>
+          </div>
+       </div>
+       </owl-carousel>
+    </div>
+ </div>
+ 
+ 

@@ -1,0 +1,19 @@
+.main-banner-wrapper{
+    margin-top: 18px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.main-banner-img-wrapper{
+    text-align: center;
+}
+
+.carousel-control-prev{
+    background:red;
+    border: 2px solid black;
+    top: 10%;
+    position: relative;
+    right: 20px;
+}
