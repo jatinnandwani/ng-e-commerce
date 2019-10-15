@@ -40,6 +40,9 @@
                   <div class="best-selling-item-quantity">
                      <p class="">{{ slide.quantity}}</p>
                   </div>
+                  <div class="best-selling-item-price">
+                     <p>{{ slide.amount | currency: 'INR':true : '1.0-0'}}</p>
+                  </div>
                   </div> 
             </div>
             </ngx-slick-carousel>

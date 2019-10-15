@@ -5,11 +5,13 @@
 .best-selling-header{
     font-size: 18px;
     font-weight: 501;
+    margin: auto;
     
 }
 .cus-slide-container{
     border: 1px solid #eee;
     padding: 15px;
+    margin: auto;
 }
 
 .view-all-best-selling a{
@@ -57,4 +59,11 @@
     color: #666;
     margin-left: 12px;
     margin-right: 12px;
+    font-size: 12px;
+    margin-top: 8px;
+}
+.best-selling-item-price{
+    color: black;
+    margin-left: 12px;
+    margin-top: 8px;
 }
