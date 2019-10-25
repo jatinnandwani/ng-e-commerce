@@ -4,7 +4,7 @@
       <div class="top-notification-wrapper">
          <div class="top-notification">
             <a target="_blank" class="top-notification__text">
-            Flat Rs.100 Cashback | Code: HAPPY100 | Min Order: Rs.1500
+            {{ header_heading }}
             </a>
          </div>
       </div>
@@ -19,68 +19,51 @@
                         </a>
                      </div>
                   </div>
-                  <div class="col-md-8 pull-right">
-                     <div class="dropdown">
-                        <a class="dropdown-toggle waves-effect waves-light cus-location" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-map-marker cus-map-location" aria-hidden="true"></i>Location</a>
-                        <div class="dropdown-menu dropdown-primary location-selection">
-                           <div class="location-sub-conatiner-1">
-                              <p class="">Where do you want the delivery?</p>
-                           </div>
-                           <div class="selected-city">
-                              <div></div>
-                              <div class="img-for-selected-city">
-                                 <img class="selected-img" src="/assets/images/kolkata-f960233.webp" />
+                  <div class="col-md-8 pull-right get-custom-icon">
+                     <p class="toogle-city-selector">
+                        <a class="" data-toggle="collapse" href="#locationselection" role="button" aria-expanded="false" aria-controls="locationselection"><i class="fa fa-map-marker cus-map-location" aria-hidden="true"></i>Location<i class="fa fa-angle-down cust-loc-arrow"></i>
+                        </a>
+                     </p>
+                     <div class="collapse" id="locationselection">
+                        <div class="card card-body location-selection">
+                           <div class="selected-city-container">
+                              <div class="location-sub-conatiner-1">
+                                 <p class="">Where do you want the delivery?</p>
                               </div>
-                              <div class="selected-city-name">
-                                 <p class="city-text">Deliver in <span class="city-name">Kolkata</span><i class="fa fa-chevron-right fa-3 pull-right grater-icon-cus" aria-hidden="true"></i></p>
-                              </div>
-                           </div>
-                           <div class="location-container-seperator">
-                              <div class="location-seperator-content">
-                                 <div class="seperator-line-between">
-                                    <span class="text-btwn-line">Or Select your city</span>
+                              <div class="selected-city">
+                                 <div></div>
+                                 <div class="img-for-selected-city">
+                                    <img class="selected-img" src="/assets/images/kolkata-f960233.webp" />
+                                 </div>
+                                 <div class="selected-city-name">
+                                    <p class="city-text">Deliver in <span class="city-name">Kolkata</span><i class="fa fa-chevron-right fa-3 pull-right grater-icon-cus" aria-hidden="true"></i></p>
                                  </div>
                               </div>
                            </div>
-                           <div class="city-asking-text">
-                              <p>Top Searched Cities</p>
-                              <div class="top-selected-images">
-                                 <div class="top-selected-images-1">
-                                    <img class="top-city" src="/assets/images/bengaluru-78062ed.webp" />
-                                    <span class="top-city-name">Bengaluru</span>
-                                 </div>
-                                 <div class="top-selected-images-1">
-                                    <img class="top-city" src="/assets/images/delhi-8cb9a0a.webp" />
-                                    <span class="top-city-name">Delhi</span>
-                                 </div>
-                                 <div class="top-selected-images-1">
-                                    <img class="top-city" src="/assets/images/gurugram-dcd6b56.webp" />
-                                    <span class="top-city-name">Gurugram</span>
-                                 </div>
-                                 <div class="top-selected-images-1">
-                                    <img class="top-city" src="/assets/images/hyderabad-bafc7e9.webp" />
-                                    <span class="top-city-name">Hyderabad</span>
-                                 </div>
-                                 <div class="top-selected-images-1">     
-                                    <img class="top-city" src="/assets/images/kolkata-f960233.webp" />
-                                    <span class="top-city-name">Kolkata</span>
-                                 </div>
-                                 <!-- <form class="navbar-form" role="search"> -->
-                                 <div class="city-search-container">
-                                    <div class="input-group city-input-text-area border">
-                                       <div class="input-group-prepend border-0">
-                                          <button id="button-addon4" type="button" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
-                                       </div>
-                                       <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon4" class="form-control bg-none border-0">
-                                    </div>
-                                    <div class="city-detect-div input-group-prepend">
-                                       <!-- <input type="button" class="form-control bg-none border-0" />  -->
-                                       <span class="detect-button-icon fa fa-location-arrow"></span>
-                                       <span class="detect-text">Detect</span>
+                           <div class="city-selector-container">
+                              <div class="location-container-seperator">
+                                 <div class="location-seperator-content">
+                                    <div class="seperator-line-between">
+                                       <span class="text-btwn-line">Or Select your city</span>
                                     </div>
                                  </div>
-                                 <!-- </form> -->
                               </div>
+                              <div class="city-asking-text">
+                                 <p>Top Searched Cities</p>
+                                 <div class="top-selected-images">
+                                    <div class="top-selected-images-1" *ngFor="let img of topsearchdcities">
+                                       <img class="top-city" src="{{ img.image}}" />
+                                       <span class="top-city-name">{{img.text}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- city dropdpwn -->
+
+                              <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="dataModel" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown>
+                              <!-- <select [(ngModel)]="selectedValue">
+                                 <option *ngFor="let c  of countries" value="c.id">{{c.name}}</option>
+                              </select> -->
+                              <!-- city dropdpwn Ends-->
                            </div>
                         </div>
                      </div>
@@ -110,7 +93,6 @@
                      </div>
                      <div class="nav-right-cart-div">
                         <p class="cart-text" (click)="open_cart('show')"><span class="fa fa-shopping-cart custom-shop-cart" aria-hidden="true"></span>Cart</p>
-                        
                      </div>
                   </div>
                </div>
@@ -122,19 +104,19 @@
    </div>
    <!--Dropdown primary-->
    <!--/Dropdown primary-->
-         <ng-container *ngIf = "show">
-               <div class="cart-container">
-                     <nav class="navbar navbar-expand-sm cart-navbar cus-rem-pad-nav">
-                        <p>My Cart</p>
-                     </nav>
-                     <div class="list-of-item">
-                        
-                     </div>
-                     <div class="bottom-cart-div">
-                        <div class="bottom-cart-container">
-                              <button type="button" class="btn btn-warning start-shoping-button">Start Shoping</button>
-                        </div>
-                           
-                     </div>
-               </div>            
-         </ng-container>
+   <ng-container *ngIf = "show">
+      <div class="cart-container">
+         <nav class="navbar navbar-expand-sm cart-navbar cus-rem-pad-nav">
+            <p>My Cart</p>
+         </nav>
+         <div class="list-of-item">
+         </div>
+         <div class="bottom-cart-div">
+            <div class="bottom-cart-container">
+               <button type="button" class="btn btn-warning start-shoping-button">Start Shoping</button>
+            </div>
+         </div>
+      </div>
+   </ng-container>
+   
+   

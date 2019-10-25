@@ -12,6 +12,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HomePageBannnerComponent } from './home-page-bannner/home-page-bannner.component';
 import { BestSellingItemComponent } from './best-selling-item/best-selling-item.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { FormsModule } from '@angular/forms';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
+// import { NgSelect2Module } from 'ng-select2';
+// import "webrtc";
 
 @NgModule({
   declarations: [
@@ -21,7 +25,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ProductCategoryComponent,
     HomePageComponent,
     HomePageBannnerComponent,
-    BestSellingItemComponent
+    BestSellingItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     TabsModule.forRoot(),
     BrowserModule,
     OwlModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    FormsModule,
+    SelectDropDownModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
