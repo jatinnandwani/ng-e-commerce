@@ -13,7 +13,10 @@ import { HomePageBannnerComponent } from './home-page-bannner/home-page-bannner.
 import { BestSellingItemComponent } from './best-selling-item/best-selling-item.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FormsModule } from '@angular/forms';
-import { SelectDropDownModule } from 'ngx-select-dropdown'
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule, MatInputModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 // import { NgSelect2Module } from 'ng-select2';
 // import "webrtc";
 
@@ -36,7 +39,11 @@ import { SelectDropDownModule } from 'ngx-select-dropdown'
     OwlModule,
     SlickCarouselModule,
     FormsModule,
-    SelectDropDownModule
+    SelectDropDownModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

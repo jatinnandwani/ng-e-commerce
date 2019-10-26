@@ -59,11 +59,23 @@
                               </div>
                               <!-- city dropdpwn -->
 
-                              <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="dataModel" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown>
-                              <!-- <select [(ngModel)]="selectedValue">
-                                 <option *ngFor="let c  of countries" value="c.id">{{c.name}}</option>
-                              </select> -->
-                              <!-- city dropdpwn Ends-->
+                              <!-- <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="dataModel" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown> -->
+
+                              <div class="city-selection-container">
+                                 <div class="city-search-box">
+                              <span class="fa fa-search" aria-hidden="true"></span>
+                                 <mat-form-field class="cust-city-dropdown">
+                                   <input type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option}}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                  </mat-form-field>
+                                 </div>
+                              </div>
+                              
+
                            </div>
                         </div>
                      </div>
@@ -72,10 +84,11 @@
                <div class="col-md-9">
                   <div class="col-md-8 pull-left">
                      <form class="product-search" name= "search-bar" action="/action_page.php">
-                        <input type="text" placeholder="Search for product" name="search" class="search-bar-input">
+                        <!-- <input type="text" placeholder="Search for product" name="search" class="search-bar-input" >
                         <div class="input-group-prepend border-0">
                            <button id="button-addon3" type="button" class="btn btn-link text-info"><i class="fa fa-search search-font"></i></button>
-                        </div>
+                        </div> -->
+                        
                      </form>
                   </div>
                   <div class="col-md-4 pull-right">

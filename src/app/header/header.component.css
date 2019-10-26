@@ -411,3 +411,31 @@
     font-size: 0;
     white-space: nowrap;
 }
+
+.city-selection-container{
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin: 16px 30px 16px 30px;
+}
+::ng-deep .mat-form-field-underline {
+    display: none;
+ }
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0;
+}  
+::ng-deep .mat-form-field{
+    font-size: 11px;
+    color: #aaa;
+    width: 91%;
+}
+
+.city-search-box span {
+    padding: 8px;
+}
+
+::ng-deep .mat-option{
+    color: #aaa;
+    line-height: 30px !important;
+    height: 30px !important;
+}

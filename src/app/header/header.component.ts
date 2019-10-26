@@ -1,27 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+export interface Pokemon {
+  value: string;
+  viewValue: string;
+}
 
-
+export interface PokemonGroup {
+  disabled?: boolean;
+  name: string;
+  pokemon: Pokemon[];
+}
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
 
+
+export class HeaderComponent implements OnInit {
+  
   public show:boolean     = false;
   public buttonName:any   = 'Show';
   public toogle_cart      = 'hide_cart';
   public header_heading   = 'Flat Rs.100 Cashback | Code: HAPPY100 | Min Order: Rs.1500';
-
-  public dropdownOptions1 = [
-    {id: 1, name: "United States"},
-    {id: 2, name: "Australia"},
-    {id: 3, name: "Canada"},
-    {id: 4, name: "Brazil"},
-    {id: 5, name: "England"}
-  ];
-  public dropdownOptions = ['United','Australia','Canada','Brazil','barara'];
   public selectedValue = null;               
   public topsearchdcities = [
         {
@@ -46,25 +50,70 @@ export class HeaderComponent implements OnInit {
         }
   ]
         
-  config = {
-    displayKey:"description", //if objects array passed which key to be displayed defaults to description
-    search:false, //true/false for the search functionlity defaults to false,
-    height: 'auto', //height of the list so that if there are more no of items it can show a scroll defaults to auto. With auto height scroll will never appear
-    placeholder:'Select', // text to be displayed when no item is selected defaults to Select,
-    customComparator: ()=>{}, // a custom function using which user wants to sort the items. default is undefined and Array.sort() will be used in that case,
-    // limitTo: options.length, // a number thats limits the no of options displayed in the UI similar to angular's limitTo pipe
-    moreText: 'more', // text to be displayed whenmore than one items are selected like Option 1 + 5 more
-    noResultsFound: 'No results found!', // text to be displayed when no items are found while searching
-    searchPlaceholder:'Search', // label thats displayed in search input,
-    searchOnKey: 'name' // key on which search should be performed this will be selective search. if undefined this will be extensive search on all keys
-  }
-public name = 'select sity';
+  
+myControl = new FormControl();
+options: string[] = ['Delhi', 'Mumbai', 'Banglore','Punjab','Himachal Pradesh','Hyderabad','chennai','Pune'];
+filteredOptions : Observable<string[]>;
+
+pokemonControl = new FormControl();
+  pokemonGroups: PokemonGroup[] = [
+    {
+      name: 'Grass',
+      pokemon: [
+        {value: 'bulbasaur-0', viewValue: 'Bulbasaur'},
+        {value: 'oddish-1', viewValue: 'Oddish'},
+        {value: 'bellsprout-2', viewValue: 'Bellsprout'}
+      ]
+    },
+    {
+      name: 'Water',
+      pokemon: [
+        {value: 'squirtle-3', viewValue: 'Squirtle'},
+        {value: 'psyduck-4', viewValue: 'Psyduck'},
+        {value: 'horsea-5', viewValue: 'Horsea'}
+      ]
+    },
+    {
+      name: 'Fire',
+      disabled: true,
+      pokemon: [
+        {value: 'charmander-6', viewValue: 'Charmander'},
+        {value: 'vulpix-7', viewValue: 'Vulpix'},
+        {value: 'flareon-8', viewValue: 'Flareon'}
+      ]
+    },
+    {
+      name: 'Psychic',
+      pokemon: [
+        {value: 'mew-9', viewValue: 'Mew'},
+        {value: 'mewtwo-10', viewValue: 'Mewtwo'},
+      ]
+    }
+  ];
+  
+public  createFilterFor(query) {
+  var lowercaseQuery = query.toLowerCase();
+
+  return function filterFn(state) {
+    return (state.value.indexOf(lowercaseQuery) === 0);
+  };
+
+}
 
   constructor() { }
 
   ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
   }
 
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
   open_cart(){
     this.show = !this.show;
   }
