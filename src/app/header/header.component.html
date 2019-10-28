@@ -65,7 +65,7 @@
                                  <div class="city-search-box">
                               <span class="fa fa-search" aria-hidden="true"></span>
                                  <mat-form-field class="cust-city-dropdown">
-                                   <input type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                   <input type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput [formControl]="cities" [matAutocomplete]="auto">
                                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                                         {{option}}
@@ -83,13 +83,26 @@
                </div>
                <div class="col-md-9">
                   <div class="col-md-8 pull-left">
-                     <form class="product-search" name= "search-bar" action="/action_page.php">
-                        <!-- <input type="text" placeholder="Search for product" name="search" class="search-bar-input" >
-                        <div class="input-group-prepend border-0">
-                           <button id="button-addon3" type="button" class="btn btn-link text-info"><i class="fa fa-search search-font"></i></button>
-                        </div> -->
-                        
-                     </form>
+                        <div class="search-bar-cust-container">
+                        <form [formGroup]="stateForm">
+                              <mat-form-field>
+                                <input type="text" matInput placeholder="States Group" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
+                                  <mat-autocomplete #autoGroup="matAutocomplete">
+                                    <!-- <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter"> -->
+                                      <mat-optgroup label="In Trending">
+                                      <mat-option *ngFor="let group of stateGroupOptions.letter | async">
+                                        {{group.letter}}
+                                      </mat-option>
+                                      </mat-optgroup>
+                                      <mat-optgroup label="In Trending">
+                                      <mat-option *ngFor="let group of stateGroupOptions | async">
+                                       {{group.names}}
+                                    </mat-option>
+                                  </mat-optgroup>
+                                </mat-autocomplete>
+                              </mat-form-field>
+                            </form>
+                            </div>
                   </div>
                   <div class="col-md-4 pull-right">
                      <div class="nav-right-login-div">

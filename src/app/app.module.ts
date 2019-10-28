@@ -17,6 +17,7 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgSelect2Module } from 'ng-select2';
 // import "webrtc";
 
@@ -43,8 +44,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatInputModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
