@@ -1,3 +1,8 @@
 .my-ecommerce-home{
     background: #f9f9f9;
 }
+body, input {
+    color: #666;
+    font-size: 12px;
+    font-family: Celias,Helvetica;
+}

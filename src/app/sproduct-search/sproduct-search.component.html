@@ -1,0 +1,22 @@
+<form class="search-bar-product">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Search for products" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-optgroup label="Categories">
+
+            <mat-option ng-size=8 *ngFor="let state of filteredStates | async" [value]="state.name">
+              <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+              <span class="product-name">{{state.name}}</span>
+            </mat-option>
+           </mat-optgroup>
+        
+       
+            <mat-optgroup ng-size=8 label="Product">
+            <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                    <small>{{state.name}}</small>
+            </mat-option>  
+            </mat-optgroup>
+        </mat-autocomplete>
+        </mat-form-field>
+      </form>
+      

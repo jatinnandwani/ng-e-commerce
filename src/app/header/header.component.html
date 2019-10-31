@@ -84,25 +84,8 @@
                <div class="col-md-9">
                   <div class="col-md-8 pull-left">
                         <div class="search-bar-cust-container">
-                        <form [formGroup]="stateForm">
-                              <mat-form-field>
-                                <input type="text" matInput placeholder="States Group" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
-                                  <mat-autocomplete #autoGroup="matAutocomplete">
-                                    <!-- <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter"> -->
-                                      <mat-optgroup label="In Trending">
-                                      <mat-option *ngFor="let group of stateGroupOptions.letter | async">
-                                        {{group.letter}}
-                                      </mat-option>
-                                      </mat-optgroup>
-                                      <mat-optgroup label="In Trending">
-                                      <mat-option *ngFor="let group of stateGroupOptions | async">
-                                       {{group.names}}
-                                    </mat-option>
-                                  </mat-optgroup>
-                                </mat-autocomplete>
-                              </mat-form-field>
-                            </form>
-                            </div>
+                              <app-sproduct-search></app-sproduct-search>
+                        </div>
                   </div>
                   <div class="col-md-4 pull-right">
                      <div class="nav-right-login-div">

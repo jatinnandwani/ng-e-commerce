@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { SproductSearchComponent } from './sproduct-search/sproduct-search.component';
 // import { NgSelect2Module } from 'ng-select2';
 // import "webrtc";
 
@@ -30,6 +31,7 @@ import { MatFormFieldModule, MatSelectModule } from '@angular/material';
     HomePageComponent,
     HomePageBannnerComponent,
     BestSellingItemComponent,
+    SproductSearchComponent,
   ],
   imports: [
     BrowserModule,
