@@ -388,12 +388,14 @@
 .toogle-city-selector a:hover {
     color: white;
     text-decoration: none;
+    border: none;
 }
 
 .toogle-city-selector a {
     text-decoration: none;
     background-color: transparent;
     color: white;
+    border: none;
 } 
 /* .start-shoping{
     background: #e96125;
@@ -524,10 +526,12 @@ body {
 }.artist-name {
   display: inline-block;
   position: absolute;
-}.filter-select-list:hover {
+}
+.filter-select-list:hover {
   background:  #C0C0C0;
   color: #fff
-}.list-highlight,
+}
+.list-highlight,
 .list-highlight:hover {
   background: rgb(55, 55, 55);
   color: #fff

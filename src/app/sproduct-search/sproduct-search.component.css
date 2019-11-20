@@ -40,12 +40,12 @@
     background-image: linear-gradient(#f4f8f8, #fff,#f4f8f8);
   }
   
-  ::ng-deep .cdk-overlay-pane{
+  /* ::ng-deep .cdk-overlay-pane{
     width: 565.2px !important;
     pointer-events: auto !important;
     top: 70.683px !important;
     left: 337.833px !important;
-  }
+  } */
 
   ::ng-deep .mat-optgroup .mat-option:not(.mat-option-multiple) {
     padding-left: 12px !important;
@@ -55,11 +55,11 @@
     font-weight: 416;
 }
 
-::ng-deep .mat-autocomplete-panel{
+/* ::ng-deep .mat-autocomplete-panel{
     overflow: hidden;
     max-height: 464px;
-}
-  ::ng-deep .cdk-overlay-pane {
+} */
+  /* ::ng-deep .cdk-overlay-pane {
     max-height: none !important;
-  }
+  } */
   

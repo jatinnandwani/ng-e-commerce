@@ -19,6 +19,8 @@ import { MatAutocompleteModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { SproductSearchComponent } from './sproduct-search/sproduct-search.component';
+import { DeliverableCitiesService } from './deliverable-cities.service';
+
 // import { NgSelect2Module } from 'ng-select2';
 // import "webrtc";
 
@@ -48,9 +50,10 @@ import { SproductSearchComponent } from './sproduct-search/sproduct-search.compo
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    
   ],
-  providers: [],
+  providers: [DeliverableCitiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
