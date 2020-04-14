@@ -4,9 +4,10 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { DeliverableCitiesService } from '../deliverable-cities.service';
 
-interface getCityInt {
+
+interface cityInterface{
   cityName : string,
-  cityId : number 
+  id : string
 }
 
 @Component({
@@ -31,52 +32,68 @@ export class HeaderComponent implements OnInit {
       
     }
   }
-  cities = new FormControl();
-  citiesoptions: string[] = ['Delhi', 'Mumbai', 'Banglore','Punjab','Himachal Pradesh','Hyderabad','chennai','Pune','Himachal Pradesh','Hyderabad','Talangana'];
-  filteredOptions : Observable<string[]>;
+  // cities = new FormControl();
+  // citiesoptions: string[] = ['Delhi', 'Mumbai', 'Banglore','Punjab','Himachal Pradesh','Hyderabad','chennai','Pune','Himachal Pradesh','Hyderabad','Talangana'];
+  // filteredOptions : Observable<string[]>;
 
-  getCities = new FormControl();
-  getCityInt = [
-    { cityName : 'Delhi' , 'id' : 1},
-    { cityName : 'Mumbai' , 'id' : 2},
-    { cityName : 'Banglore' , 'id' : 3},
-    { cityName : 'Punjab' , 'id' : 4},
-    { cityName : 'Himachal Pradesh' , 'id' : 5},
-    { cityName : 'Hyderabad' , 'id' : 6},
-    { cityName : 'chennai' , 'id' : 7},
-    { cityName : 'Pune' , 'id' : 8},
-    { cityName : 'Talangana' , 'id' : 9},
-    { cityName : 'Gaziabad' , 'id' : 10},
-    { cityName : 'Rajasthan' , 'id' : 11},
-    { cityName : 'Gujarat' , 'id' : 12 }  
+
+  // Modifying 15-04-2020
+  cityAvailablefilteredOptions : Observable<cityInterface[]>;
+  newcities = new FormControl();
+  availableCities : cityInterface[] = [
+          { cityName : "Delhi" ,
+            id : "Delhi"
+          },
+          { cityName : "Mumbai" ,
+            id : "Mumbai"
+          },
+          { cityName : "Banglore",
+            id : "Banglore"
+          },
+          { cityName : "Punjab",
+            id : "Punjab" }
+          ,
+          { cityName : "Hyderabad",
+            id : "Hyderabad"
+          },
+          { cityName : "Talangana",
+            id : "Talangana"
+          }
   ]
-  citiesfilteredOptions : Observable<string[]>;
 
+  
+  // Modifying 15-04-2020
+  
   constructor(private _deliverableCitiesService : DeliverableCitiesService) { }
 
   ngOnInit() {
-    this.filteredOptions = this.cities.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
+    // this.filteredOptions = this.cities.valueChanges.pipe(
+    //   startWith(''),
+    //   map(value => this._filter(value))
+    // );
     this.topsearchdcities = this._deliverableCitiesService.topSearchedCities();
-    
-    this.citiesfilteredOptions = this.getCities.valueChanges.pipe(
-      startWith(''),
-      map(value => this._newfilter(value))
-    )
   
+   //newly adding 15-04-2020
+   this.cityAvailablefilteredOptions = this.newcities.valueChanges
+   .pipe(
+     startWith(''),
+    map(cityInterface => this._newfilter(cityInterface))
+  );   
+  
+   //newly adding 15-04-2020
   }
 
-  private _newfilter(value:string) : string[] {
+  
+  // newly adding
+  private _newfilter(value: string ): cityInterface[] {
     const filterValue = value.toLowerCase();
-    return this.citiesoptions.filter(option => option.toLowerCase().indexOf(filterValue) === 0)
+    return this.availableCities.filter(option => option.cityName.toLowerCase().indexOf(filterValue) === 0);
   }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.citiesoptions.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
-  }
+  // newly adding
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+  //   return this.citiesoptions.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  // }
 
   open_cart(){
     this.show = !this.show;
@@ -90,4 +107,3 @@ export class HeaderComponent implements OnInit {
       
   }
 }
-

@@ -1,129 +1,125 @@
-
-
 <div>
-      <div class="top-notification-wrapper">
-         <div class="top-notification">
-            <a target="_blank" class="top-notification__text">
-            {{ header_heading }}
-            </a>
-         </div>
-      </div>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark cus-rem-pad-nav">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-3">
-                  <div class="col-md-4 pull-left">
-                     <div class="logo-div">
-                        <a href="" class="company-logo">
-                        <img alt="logo" class="logo" src="/assets/images/logo.png">
-                        </a>
-                     </div>
-                  </div>
-                  <div class="col-md-8 pull-right get-custom-icon">
-                     <p class="toogle-city-selector">
-                        <a class="" data-toggle="collapse" href="#locationselection" role="button" aria-expanded="false" aria-controls="locationselection"><i class="fa fa-map-marker cus-map-location" aria-hidden="true"></i>{{ location }}<i class="fa fa-angle-down cust-loc-arrow"></i>
-                        </a>
-                     </p>
-                     <div class="collapse" id="locationselection">
-                        <div class="card card-body location-selection">
-                           <div class="selected-city-container">
-                              <div class="location-sub-conatiner-1">
-                                 <p class="">Where do you want the delivery?</p>
-                              </div>
-                              <div class="selected-city">
-                                 <div class="img-for-selected-city">
-                                    <img class="selected-img" src="/assets/images/kolkata-f960233.webp" />
-                                 </div>
-                                 <div class="selected-city-name">
-                                    <p class="city-text">Deliver in <span class="city-name">{{ location }}</span><i class="fa fa-chevron-right fa-3 pull-right grater-icon-cus" aria-hidden="true"></i></p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="city-selector-container">
-                              <div class="location-container-seperator">
-                                 <div class="location-seperator-content">
-                                    <div class="seperator-line-between">
-                                       <span class="text-btwn-line">Or Select your city</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="city-asking-text">
-                                 <p>Top Searched Cities</p>
-                                 <div class="top-selected-images">
-                                    <div class="top-selected-images-1" *ngFor="let img of topsearchdcities">
-                                       <img class="top-city" src="{{ img.image}}" />
-                                       <span class="top-city-name">{{img.text}}</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <!-- city dropdpwn -->
-
-                              <!-- <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="dataModel" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown> -->
-                              <div class="form-group">
-                              <div class="city-selection-container">
-                                 <div class="city-search-box">
-                              <span class="fa fa-search" aria-hidden="true"></span>
-                                 <mat-form-field class="cust-city-dropdown">
-                                   <input #selectCity [(ngModel)]="location" type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput (ngModelChange)="selected_city(selectCity.value)" [matAutocomplete]="auto">
-                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                        {{option}}
-                                      </mat-option>
-                                          </mat-autocomplete>
-                                       </mat-form-field>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-9">
-                  <div class="col-md-8 pull-left">
-                        <div class="search-bar-cust-container">
-                              <app-sproduct-search></app-sproduct-search>
-                        </div>
-                  </div>
-                  <div class="col-md-4 pull-right">
-                     <div class="nav-right-login-div">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Login/Sign Up
-                        </a>
-                        <div class="dropdown-menu login-dropdown"  aria-labelledby="navbarDropdownMenuLink">
-                           <div class="col-md">
-                              <a type="button" class="btn btn-warning login-sign-up">Login or Sign Up</a>
-                           </div>
-                           <a class="dropdown-item" href="#">FAQ</a>
-                           <a class="dropdown-item" href="#">Offers</a>
-                        </div>
-                     </div>
-                     <div class="nav-right-cart-div">
-                        <p class="cart-text" (click)="open_cart('show')"><span class="fa fa-shopping-cart custom-shop-cart" aria-hidden="true"></span>Cart</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </nav>
-      <div>
+   <div class="top-notification-wrapper">
+      <div class="top-notification">
+         <a target="_blank" class="top-notification__text">
+         {{ header_heading }}
+         </a>
       </div>
    </div>
-   <!--Dropdown primary-->
-   <!--/Dropdown primary-->
-   <ng-container *ngIf = "show">
-      <div class="cart-container">
-         <nav class="navbar navbar-expand-sm cart-navbar cus-rem-pad-nav">
-            <p>My Cart</p>
-         </nav>
-         <div class="list-of-item">
-         </div>
-         <div class="bottom-cart-div">
-            <div class="bottom-cart-container">
-               <button type="button" class="btn btn-warning start-shoping-button">Start Shoping</button>
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark cus-rem-pad-nav">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-3">
+               <div class="col-md-4 pull-left">
+                  <div class="logo-div">
+                     <a href="" class="company-logo">
+                     <img alt="logo" class="logo" src="/assets/images/logo.png">
+                     </a>
+                  </div>
+               </div>
+               <div class="col-md-8 pull-right get-custom-icon">
+                  <p class="toogle-city-selector">
+                     <a class="" data-toggle="collapse" href="#locationselection" role="button" aria-expanded="false" aria-controls="locationselection"><i class="fa fa-map-marker cus-map-location" aria-hidden="true"></i>{{ location }}<i class="fa fa-angle-down cust-loc-arrow"></i>
+                     </a>
+                  </p>
+                  <div class="collapse" id="locationselection">
+                     <div class="card card-body location-selection">
+                        <div class="selected-city-container">
+                           <div class="location-sub-conatiner-1">
+                              <p class="">Where do you want the delivery?</p>
+                           </div>
+                           <div class="selected-city">
+                              <div class="img-for-selected-city">
+                                 <img class="selected-img" src="/assets/images/kolkata-f960233.webp" />
+                              </div>
+                              <div class="selected-city-name">
+                                 <p class="city-text">Deliver in <span class="city-name">{{ location }}</span><i class="fa fa-chevron-right fa-3 pull-right grater-icon-cus" aria-hidden="true"></i></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="city-selector-container">
+                           <div class="location-container-seperator">
+                              <div class="location-seperator-content">
+                                 <div class="seperator-line-between">
+                                    <span class="text-btwn-line">Or Select your city</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="city-asking-text">
+                              <p>Top Searched Cities</p>
+                              <div class="top-selected-images">
+                                 <div class="top-selected-images-1" *ngFor="let img of topsearchdcities">
+                                    <img class="top-city" src="{{ img.image}}" />
+                                    <span class="top-city-name">{{img.text}}</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- city dropdpwn -->
+
+                           <!-- <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="dataModel" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown> -->
+                           <div class="form-group">
+                           <div class="city-selection-container">
+                              <div class="city-search-box">
+                           <span class="fa fa-search" aria-hidden="true"></span>
+                              <mat-form-field class="cust-city-dropdown">
+                                <input #selectCity [(ngModel)]="location" type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput (ngModelChange)="selected_city(selectCity.value)" [matAutocomplete]="auto">
+                                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                   <mat-option *ngFor="let option of cityAvailablefilteredOptions | async" [value]="option.cityName">
+                                     {{option.cityName}}
+                                   </mat-option>
+                                       </mat-autocomplete>
+                                    </mat-form-field>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9">
+               <div class="col-md-8 pull-left">
+                     <div class="search-bar-cust-container">
+                           <app-sproduct-search></app-sproduct-search>
+                     </div>
+               </div>
+               <div class="col-md-4 pull-right">
+                  <div class="nav-right-login-div">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Login/Sign Up
+                     </a>
+                     <div class="dropdown-menu login-dropdown"  aria-labelledby="navbarDropdownMenuLink">
+                        <div class="col-md">
+                           <a type="button" class="btn btn-warning login-sign-up">Login or Sign Up</a>
+                        </div>
+                        <a class="dropdown-item" href="#">FAQ</a>
+                        <a class="dropdown-item" href="#">Offers</a>
+                     </div>
+                  </div>
+                  <div class="nav-right-cart-div">
+                     <p class="cart-text" (click)="open_cart('show')"><span class="fa fa-shopping-cart custom-shop-cart" aria-hidden="true"></span>Cart</p>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
-   </ng-container>
-   
-   
+   </nav>
+   <div>
+   </div>
+</div>
+<!--Dropdown primary-->
+<!--/Dropdown primary-->
+<ng-container *ngIf = "show">
+   <div class="cart-container">
+      <nav class="navbar navbar-expand-sm cart-navbar cus-rem-pad-nav">
+         <p>My Cart</p>
+      </nav>
+      <div class="list-of-item">
+      </div>
+      <div class="bottom-cart-div">
+         <div class="bottom-cart-container">
+            <button type="button" class="btn btn-warning start-shoping-button">Start Shoping</button>
+         </div>
+      </div>
+   </div>
+</ng-container>
