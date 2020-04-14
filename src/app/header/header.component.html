@@ -21,7 +21,7 @@
                   </div>
                   <div class="col-md-8 pull-right get-custom-icon">
                      <p class="toogle-city-selector">
-                        <a class="" data-toggle="collapse" href="#locationselection" role="button" aria-expanded="false" aria-controls="locationselection"><i class="fa fa-map-marker cus-map-location" aria-hidden="true"></i>Location<i class="fa fa-angle-down cust-loc-arrow"></i>
+                        <a class="" data-toggle="collapse" href="#locationselection" role="button" aria-expanded="false" aria-controls="locationselection"><i class="fa fa-map-marker cus-map-location" aria-hidden="true"></i>{{ location }}<i class="fa fa-angle-down cust-loc-arrow"></i>
                         </a>
                      </p>
                      <div class="collapse" id="locationselection">
@@ -35,7 +35,7 @@
                                     <img class="selected-img" src="/assets/images/kolkata-f960233.webp" />
                                  </div>
                                  <div class="selected-city-name">
-                                    <p class="city-text">Deliver in <span class="city-name">Kolkata</span><i class="fa fa-chevron-right fa-3 pull-right grater-icon-cus" aria-hidden="true"></i></p>
+                                    <p class="city-text">Deliver in <span class="city-name">{{ location }}</span><i class="fa fa-chevron-right fa-3 pull-right grater-icon-cus" aria-hidden="true"></i></p>
                                  </div>
                               </div>
                            </div>
@@ -59,22 +59,21 @@
                               <!-- city dropdpwn -->
 
                               <!-- <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="dataModel" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown> -->
-
+                              <div class="form-group">
                               <div class="city-selection-container">
                                  <div class="city-search-box">
                               <span class="fa fa-search" aria-hidden="true"></span>
                                  <mat-form-field class="cust-city-dropdown">
-                                   <input type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput [formControl]="cities" [matAutocomplete]="auto">
+                                   <input #selectCity [(ngModel)]="location" type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput (ngModelChange)="selected_city(selectCity.value)" [matAutocomplete]="auto">
                                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                                         {{option}}
                                       </mat-option>
-                                    </mat-autocomplete>
-                                  </mat-form-field>
+                                          </mat-autocomplete>
+                                       </mat-form-field>
+                                    </div>
                                  </div>
                               </div>
-                              
-
                            </div>
                         </div>
                      </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, DoCheck  } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -16,14 +16,21 @@ interface getCityInt {
 })
 
 export class HeaderComponent implements OnInit {
-
+  public isCollapsed      = false;
   public show:boolean     = false;
   public buttonName:any   = 'Show';
   public toogle_cart      = 'hide_cart';
   public header_heading   = 'Flat Rs.100 Cashback | Code: HAPPY100 | Min Order: Rs.1500';
+  public location         = 'Location';
   public selectedValue = null;               
   public topsearchdcities = [];
-         
+   
+  public checkCollapse(check){
+    if(check.classList.contains('show')){
+      console.log('is open');
+      
+    }
+  }
   cities = new FormControl();
   citiesoptions: string[] = ['Delhi', 'Mumbai', 'Banglore','Punjab','Himachal Pradesh','Hyderabad','chennai','Pune','Himachal Pradesh','Hyderabad','Talangana'];
   filteredOptions : Observable<string[]>;
@@ -43,7 +50,7 @@ export class HeaderComponent implements OnInit {
     { cityName : 'Rajasthan' , 'id' : 11},
     { cityName : 'Gujarat' , 'id' : 12 }  
   ]
-
+  citiesfilteredOptions : Observable<string[]>;
 
   constructor(private _deliverableCitiesService : DeliverableCitiesService) { }
 
@@ -52,15 +59,18 @@ export class HeaderComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value))
     );
-
     this.topsearchdcities = this._deliverableCitiesService.topSearchedCities();
     
-    this.citiesOptions = this.cities.valueChanges.pipe(
+    this.citiesfilteredOptions = this.getCities.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value))
-    ); 
+      map(value => this._newfilter(value))
+    )
+  
+  }
 
-
+  private _newfilter(value:string) : string[] {
+    const filterValue = value.toLowerCase();
+    return this.citiesoptions.filter(option => option.toLowerCase().indexOf(filterValue) === 0)
   }
 
   private _filter(value: string): string[] {
@@ -73,8 +83,11 @@ export class HeaderComponent implements OnInit {
   }
 
   selectionChanged(){
-
   }
 
+  selected_city(seletced_city){
+      console.log(seletced_city);
+      
+  }
 }
 

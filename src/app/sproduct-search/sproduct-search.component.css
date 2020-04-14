@@ -9,7 +9,7 @@
   }
 
   .search-bar-product .mat-form-field{
-    padding: 0px 0px 4px 10px;
+    padding: 0px 0px 0px 0px;
   }
 
   .example-full-width {
@@ -41,10 +41,10 @@
   }
   
   /* ::ng-deep .cdk-overlay-pane{
-    width: 565.2px !important;
-    pointer-events: auto !important;
-    top: 70.683px !important;
-    left: 337.833px !important;
+        width: 566.333px;
+      pointer-events: auto;
+      top: 70.6833px;
+      left: 338.167px;
   } */
 
   ::ng-deep .mat-optgroup .mat-option:not(.mat-option-multiple) {
@@ -54,6 +54,13 @@
     font-size: 12px;
     font-weight: 416;
 }
+
+/* ::ng-deep .cdk-overlay-pane{
+      width: 566.667px;
+      pointer-events: auto;
+      top: 70.9063px;
+      left: 338.5px;
+} */
 
 /* ::ng-deep .mat-autocomplete-panel{
     overflow: hidden;

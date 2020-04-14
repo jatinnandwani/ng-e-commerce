@@ -450,7 +450,7 @@
 }
 
 ::ng-deep .search-bar-cust-container .mat-form-field{
-    width: 98%;
+    width: 100%;
 }
 
 *::after,
