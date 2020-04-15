@@ -67,23 +67,16 @@ export class HeaderComponent implements OnInit {
   constructor(private _deliverableCitiesService : DeliverableCitiesService) { }
 
   ngOnInit() {
-    // this.filteredOptions = this.cities.valueChanges.pipe(
-    //   startWith(''),
-    //   map(value => this._filter(value))
-    // );
-    this.topsearchdcities = this._deliverableCitiesService.topSearchedCities();
-  
+   this.topsearchdcities = this._deliverableCitiesService.topSearchedCities();
    //newly adding 15-04-2020
    this.cityAvailablefilteredOptions = this.newcities.valueChanges
-   .pipe(
-     startWith(''),
+    .pipe(
+    startWith(''),
     map(cityInterface => this._newfilter(cityInterface))
-  );   
-  
-   //newly adding 15-04-2020
+  );
+     
+  //newly adding 15-04-2020
   }
-
-  
   // newly adding
   private _newfilter(value: string ): cityInterface[] {
     const filterValue = value.toLowerCase();
@@ -100,10 +93,5 @@ export class HeaderComponent implements OnInit {
   }
 
   selectionChanged(){
-  }
-
-  selected_city(seletced_city){
-      console.log(seletced_city);
-      
   }
 }

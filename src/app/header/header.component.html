@@ -62,7 +62,7 @@
                               <div class="city-search-box">
                            <span class="fa fa-search" aria-hidden="true"></span>
                               <mat-form-field class="cust-city-dropdown">
-                                <input #selectCity [(ngModel)]="location" type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput (ngModelChange)="selected_city(selectCity.value)" [matAutocomplete]="auto">
+                                <input #selectCity [(ngModel)]="location" type="text" placeholder="Type your city (e.g Chennai, Pune )" matInput [matAutocomplete]="auto" [formControl]="newcities">
                                  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                    <mat-option *ngFor="let option of cityAvailablefilteredOptions | async" [value]="option.cityName">
                                      {{option.cityName}}
