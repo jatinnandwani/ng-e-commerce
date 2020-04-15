@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { DeliverableCitiesService } from '../deliverable-cities.service';
+import { DeliveringCitiesService } from '../delivering-cities.service';
 
 
 interface cityInterface{
@@ -25,69 +26,35 @@ export class HeaderComponent implements OnInit {
   public location         = 'Location';
   public selectedValue = null;               
   public topsearchdcities = [];
-   
   public checkCollapse(check){
     if(check.classList.contains('show')){
       console.log('is open');
       
     }
   }
-  // cities = new FormControl();
-  // citiesoptions: string[] = ['Delhi', 'Mumbai', 'Banglore','Punjab','Himachal Pradesh','Hyderabad','chennai','Pune','Himachal Pradesh','Hyderabad','Talangana'];
-  // filteredOptions : Observable<string[]>;
-
-
-  // Modifying 15-04-2020
+  
   cityAvailablefilteredOptions : Observable<cityInterface[]>;
   newcities = new FormControl();
-  availableCities : cityInterface[] = [
-          { cityName : "Delhi" ,
-            id : "Delhi"
-          },
-          { cityName : "Mumbai" ,
-            id : "Mumbai"
-          },
-          { cityName : "Banglore",
-            id : "Banglore"
-          },
-          { cityName : "Punjab",
-            id : "Punjab" }
-          ,
-          { cityName : "Hyderabad",
-            id : "Hyderabad"
-          },
-          { cityName : "Talangana",
-            id : "Talangana"
-          }
-  ]
-
+  availableCities : cityInterface[] = []
   
-  // Modifying 15-04-2020
-  
-  constructor(private _deliverableCitiesService : DeliverableCitiesService) { }
+  constructor(private _deliverableCitiesService : DeliverableCitiesService, private _deliveringCitie : DeliveringCitiesService) { }
 
   ngOnInit() {
    this.topsearchdcities = this._deliverableCitiesService.topSearchedCities();
-   //newly adding 15-04-2020
+   // Get cities for the droopdown  
+   this.availableCities = this._deliveringCitie.getDeliveringCities(); 
+   
    this.cityAvailablefilteredOptions = this.newcities.valueChanges
     .pipe(
     startWith(''),
     map(cityInterface => this._newfilter(cityInterface))
   );
-     
-  //newly adding 15-04-2020
   }
-  // newly adding
   private _newfilter(value: string ): cityInterface[] {
     const filterValue = value.toLowerCase();
     return this.availableCities.filter(option => option.cityName.toLowerCase().indexOf(filterValue) === 0);
   }
-  // newly adding
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
-  //   return this.citiesoptions.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
-  // }
-
+ 
   open_cart(){
     this.show = !this.show;
   }

@@ -20,6 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { SproductSearchComponent } from './sproduct-search/sproduct-search.component';
 import { DeliverableCitiesService } from './deliverable-cities.service';
+import { DeliveringCitiesService } from './delivering-cities.service';
+import { ProductItemsListingService } from './product-items-listing.service';
+import { ProductListingOwlService } from './product-listing-owl.service';
+import { BestSellingItemServiceService } from './best-selling-item-service.service';
 
 // import { NgSelect2Module } from 'ng-select2';
 // import "webrtc";
@@ -53,7 +57,7 @@ import { DeliverableCitiesService } from './deliverable-cities.service';
     MatSelectModule,
     
   ],
-  providers: [DeliverableCitiesService],
+  providers: [DeliverableCitiesService, DeliveringCitiesService, ProductItemsListingService, ProductListingOwlService, BestSellingItemServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
