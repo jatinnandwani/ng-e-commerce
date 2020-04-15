@@ -1,2 +1,1 @@
-# ng-e-commerce
-# owl-carasol
+# E-Commerce Angular App
