@@ -39,9 +39,7 @@ export class SproductSearchComponent implements OnInit {
   
   ngOnInit() {
     this.states = this._ProductItemsListingService.getPrductnItemsList(); 
-    console.log('*****000000000*********');
     console.log(this.states);
-    console.log('*****000000000*********');
   }
 
 }

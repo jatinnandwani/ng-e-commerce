@@ -24,6 +24,7 @@ import { DeliveringCitiesService } from './delivering-cities.service';
 import { ProductItemsListingService } from './product-items-listing.service';
 import { ProductListingOwlService } from './product-listing-owl.service';
 import { BestSellingItemServiceService } from './best-selling-item-service.service';
+import { HttpClientModule } from '@angular/common/http'
 
 // import { NgSelect2Module } from 'ng-select2';
 // import "webrtc";
@@ -55,7 +56,7 @@ import { BestSellingItemServiceService } from './best-selling-item-service.servi
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
-    
+    HttpClientModule
   ],
   providers: [DeliverableCitiesService, DeliveringCitiesService, ProductItemsListingService, ProductListingOwlService, BestSellingItemServiceService],
   bootstrap: [AppComponent]

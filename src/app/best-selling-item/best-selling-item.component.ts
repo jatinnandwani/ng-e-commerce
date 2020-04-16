@@ -96,7 +96,8 @@ export class BestSellingItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.slides = this._BestSellingItemServiceService.best_selling_list(); 
+    this._BestSellingItemServiceService.best_selling_list()
+    .subscribe(data => this.slides  = data ); 
   }
 
 }
