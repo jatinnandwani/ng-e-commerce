@@ -24,7 +24,11 @@ import { DeliveringCitiesService } from './delivering-cities.service';
 import { ProductItemsListingService } from './product-items-listing.service';
 import { ProductListingOwlService } from './product-listing-owl.service';
 import { BestSellingItemServiceService } from './best-selling-item-service.service';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
+import { BuyProductWrapperComponent } from './buy-product-wrapper/buy-product-wrapper.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 // import { NgSelect2Module } from 'ng-select2';
 // import "webrtc";
@@ -39,6 +43,9 @@ import { HttpClientModule } from '@angular/common/http'
     HomePageBannnerComponent,
     BestSellingItemComponent,
     SproductSearchComponent,
+    BuyProductComponent,
+    PathNotFoundComponent,
+    BuyProductWrapperComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,8 @@ import { HttpClientModule } from '@angular/common/http'
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatBadgeModule
   ],
   providers: [DeliverableCitiesService, DeliveringCitiesService, ProductItemsListingService, ProductListingOwlService, BestSellingItemServiceService],
   bootstrap: [AppComponent]

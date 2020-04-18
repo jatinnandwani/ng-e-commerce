@@ -48,7 +48,7 @@
                            <p class="pre-amount">{{ slide.amount | currency: 'INR':true : '1.0-0'}}</p>
                      </div>
                      <div class="col-md-8">
-                           <button class="button button3">Add To Cart</button>
+                           <button (click)="passData()" class="button button3">Add To Cart</button>
                      </div>
                      </div>
                   </div>

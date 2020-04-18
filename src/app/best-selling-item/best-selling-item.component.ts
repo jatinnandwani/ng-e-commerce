@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { BestSellingItemServiceService } from '../best-selling-item-service.service';
+//import { EventEmitter } from 'protractor';
 @Component({
   selector: 'app-best-selling-item',
   templateUrl: './best-selling-item.component.html',
   styleUrls: ['./best-selling-item.component.css']
 })
 export class BestSellingItemComponent implements OnInit {
+  @Output() passedEvent = new EventEmitter<string>();
+
   slides = [];
   slideConfig = {
                 //  "slidesToShow": 5,
@@ -91,13 +94,19 @@ export class BestSellingItemComponent implements OnInit {
     }
   }
 
+  
   constructor(private _BestSellingItemServiceService : BestSellingItemServiceService) { 
-    
   }
 
   ngOnInit() {
     this._BestSellingItemServiceService.best_selling_list()
     .subscribe(data => this.slides  = data ); 
   }
+
+  passData(){
+    this.passedEvent.emit("Just sending from another component");
+    //console.log(incomingData);
+  }
+ 
 
 }

@@ -9,5 +9,11 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-  title = 'ecommerce';
+  title = 'BuyMe';
+  childData: number;
+
 }
+  
+// if(window.location.href == 'http://localhost:7781/product'){
+//   console.log('Yes you are in product');
+// }

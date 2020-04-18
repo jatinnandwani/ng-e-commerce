@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, DoCheck  } from '@angular/core';
+import { Component, OnInit, ElementRef, DoCheck} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -24,15 +24,15 @@ export class HeaderComponent implements OnInit {
   public toogle_cart      = 'hide_cart';
   public header_heading   = 'Flat Rs.100 Cashback | Code: HAPPY100 | Min Order: Rs.1500';
   public location         = 'Location';
-  public selectedValue = null;               
+  public selectedValue    = null;               
   public topsearchdcities = [];
+  public childData        : string;
   public checkCollapse(check){
     if(check.classList.contains('show')){
       console.log('is open');
-      
     }
   }
-  
+
   cityAvailablefilteredOptions : Observable<cityInterface[]>;
   newcities = new FormControl();
   availableCities : cityInterface[] = []
@@ -61,4 +61,12 @@ export class HeaderComponent implements OnInit {
 
   selectionChanged(){
   }
+
+  childEventFromChild(data : string){
+    console.log("*************************************************");
+    console.log(data);
+    this.childData = data;
+    //alert('It has been listened');
+  }
+ 
 }
